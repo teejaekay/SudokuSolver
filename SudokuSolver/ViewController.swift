@@ -54,7 +54,6 @@ class ViewController: UIViewController {
             
             // determines which number was pressed
             let tag = sender.tag
-            //print("\(tag) pressed")
             
             testBoard = board
             
