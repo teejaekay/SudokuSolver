@@ -153,7 +153,7 @@ class ViewController: UIViewController {
     func selectBox(x: CGFloat, y: CGFloat) {
         
         //resets background color when unselected
-        if cellNumber > 0 {
+        if cellNumber >= 0 {
             cells[cellNumber].backgroundColor = .white
         }
         
