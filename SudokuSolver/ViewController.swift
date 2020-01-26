@@ -12,7 +12,6 @@ import UIKit
 
 // feedback when right answer
 // timer?
-// solver visual
 
 
 class ViewController: UIViewController {
