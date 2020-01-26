@@ -1113,7 +1113,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="1">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nt3-2P-fGt"/>
@@ -1123,7 +1123,7 @@
                                         <rect key="frame" x="39" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="2">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="byJ-lM-JmG"/>
@@ -1133,7 +1133,7 @@
                                         <rect key="frame" x="78" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="3">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DhI-9W-sZt"/>
@@ -1143,7 +1143,7 @@
                                         <rect key="frame" x="117" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="4">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JWb-IY-aoz"/>
@@ -1153,7 +1153,7 @@
                                         <rect key="frame" x="156" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="5">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KGU-iB-mdp"/>
@@ -1163,7 +1163,7 @@
                                         <rect key="frame" x="195" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="6">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uuC-uo-y0K"/>
@@ -1173,7 +1173,7 @@
                                         <rect key="frame" x="234" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="7">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V7Y-3F-72e"/>
@@ -1183,7 +1183,7 @@
                                         <rect key="frame" x="273" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="8">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qwZ-L7-aMX"/>
@@ -1193,7 +1193,7 @@
                                         <rect key="frame" x="312" y="0.0" width="30" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="9">
-                                            <color key="titleColor" red="0.25595502168329798" green="0.57148804917458906" blue="0.71448683375634525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
                                             <action selector="numberSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="378-9n-JuF"/>

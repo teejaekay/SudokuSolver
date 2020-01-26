@@ -17,6 +17,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let customColor = CGColor(srgbRed: 50, green: 138, blue: 61, alpha: 1)
     var numStrikes = -1
     var touchLocation = CGPoint()
     var boxIsSelected = false
@@ -24,7 +25,6 @@ class ViewController: UIViewController {
     
     var visInstructions = [[0, 0, 0]]
     var counter = 0
-    var visualSolve = false
     
     @IBOutlet var fullBoard: UIStackView!
     @IBOutlet var cells: [UILabel]!
@@ -96,19 +96,17 @@ class ViewController: UIViewController {
     
     @IBAction func solveButton(_ sender: Any) {
         
-       /*if solve() {
-            board = testBoard
-            fillBoard()
-        }*/
-        
-        visualSolve = true
         if solve() {
             
-            // changing given cells to green
+            // changing given cells to green and empty to white
             for i in 0...80 {
+                if (cells[i].backgroundColor != .white) {
+                    cells[i].backgroundColor = .white
+                }
                 if (cells[i].text != "") {
                     cells[i].backgroundColor = .green
                 }
+               
                 
             }
             
@@ -272,25 +270,22 @@ class ViewController: UIViewController {
         for i in 1...9 {
             
             //print("testing value: \(i) in cell \(empCell)")
-            if (visualSolve) {
-                visInstructions.append([empCell, i, 0])
-            }
+            visInstructions.append([empCell, i, 0])
             
             if checkValid(cell: empCell, value: i) {
                 testBoard[empCellRow][empCellCol] = i
-                if (visualSolve) {
-                    visInstructions.append([empCell, i, 1])
-                }
                 
+                visInstructions.append([empCell, i, 1])
                 
                 if solve() {
                     return true
                 }
+                
                 print("backtracking")
                 testBoard[empCellRow][empCellCol] = 0
-                if (visualSolve) {
-                    visInstructions.append([empCell, 0, 1])
-                }
+                
+                visInstructions.append([empCell, 0, 1])
+                
             }
         }
         
@@ -332,12 +327,12 @@ class ViewController: UIViewController {
             // value is incorrect, turn red
             if (test[2] == 0) {
                 cells[test[0]].text = ""
-                cells[test[0]].backgroundColor = .red
+                cells[test[0]].backgroundColor = .systemRed
             }
             
             // value is correct, turn green
             if (test[2] == 1) {
-                cells[test[0]].backgroundColor = .green
+                cells[test[0]].backgroundColor = .systemGreen
             }
             
             // showing every value being tested
@@ -346,7 +341,7 @@ class ViewController: UIViewController {
         
         // recursion call after a short delay
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.07) {
             
     
             if (self.counter < self.visInstructions.count - 1) {
