@@ -21,6 +21,11 @@ class ViewController: UIViewController {
     var touchLocation = CGPoint()
     var boxIsSelected = false
     var cellNumber = -1
+    
+    var visInstructions = [[0, 0, 0]]
+    var counter = 0
+    var visualSolve = false
+    
     @IBOutlet var fullBoard: UIStackView!
     @IBOutlet var cells: [UILabel]!
     
@@ -77,7 +82,6 @@ class ViewController: UIViewController {
                 }
                 
             } else {
-//NOTE//        // TEST IF NECESSARY
                 // value is in a row, col, or box. Reset in test board
                 testBoard[getRow(cell: cellNumber)][getCol(cell: cellNumber)] = 0
                 strike()
@@ -92,15 +96,28 @@ class ViewController: UIViewController {
     
     @IBAction func solveButton(_ sender: Any) {
         
-       if solve() {
+       /*if solve() {
             board = testBoard
             fillBoard()
+        }*/
+        
+        visualSolve = true
+        if solve() {
+            
+            // changing given cells to green
+            for i in 0...80 {
+                if (cells[i].text != "") {
+                    cells[i].backgroundColor = .green
+                }
+                
+            }
+            
+            // starts the visualizer
+            arrayExecuter(test: visInstructions[counter])
         }
         
         
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -179,7 +196,7 @@ class ViewController: UIViewController {
         // check row
         for i in 0...8 {
             if (testBoard[row][i] == value && col != i) {
-                print("row error")
+                //print("row error")
                 return false;
             }
         }
@@ -187,7 +204,7 @@ class ViewController: UIViewController {
         // check column
         for i in 0...8 {
             if (testBoard[i][col] == value && row != i) {
-                print("column error")
+                //print("column error")
                 return false;
             }
         }
@@ -204,18 +221,18 @@ class ViewController: UIViewController {
                     for i in 0...2 {
                         for j in 0...2 {
                             if testBoard[i][j] == value {
-                                print("ivalid box")
+                                //print("ivalid box")
                                 return false
                             }
                         }
                     }
                 } else if (boxNum.elementsEqual("\(i)\(j)")) {
-                    print("same box")
+                    //print("same box")
                     return false
                     
                 } else {
                     if (testBoard[i][j] == value) {
-                    print("box error")
+                    //print("box error")
                     return false
                 
                     }
@@ -227,11 +244,11 @@ class ViewController: UIViewController {
     }
     
     // finds empty cell
-    func findEmpty() -> Int {
+    func findEmpty(board: [[Int]]) -> Int {
         
         for i in 0...8 {
             for j in 0...8 {
-                if testBoard[i][j] == 0 {
+                if board[i][j] == 0 {
                     return (9 * i) + j
                 }
             }
@@ -243,7 +260,7 @@ class ViewController: UIViewController {
     
     func solve() -> Bool {
         
-        let empCell = findEmpty()
+        let empCell = findEmpty(board: testBoard)
         let empCellRow = getRow(cell: empCell)
         let empCellCol = getCol(cell: empCell)
         
@@ -253,15 +270,27 @@ class ViewController: UIViewController {
         }
         
         for i in 1...9 {
-            print("testing value: \(i) in cell \(empCell)")
+            
+            //print("testing value: \(i) in cell \(empCell)")
+            if (visualSolve) {
+                visInstructions.append([empCell, i, 0])
+            }
+            
             if checkValid(cell: empCell, value: i) {
                 testBoard[empCellRow][empCellCol] = i
-                                
+                if (visualSolve) {
+                    visInstructions.append([empCell, i, 1])
+                }
+                
+                
                 if solve() {
                     return true
                 }
                 print("backtracking")
                 testBoard[empCellRow][empCellCol] = 0
+                if (visualSolve) {
+                    visInstructions.append([empCell, 0, 1])
+                }
             }
         }
         
@@ -295,6 +324,41 @@ class ViewController: UIViewController {
         
     }
     
+    func arrayExecuter(test: [Int]) {
+        
+        // value at index 0 of visInstructions, do not use
+        if (test != [0, 0, 0]) {
+            
+            // value is incorrect, turn red
+            if (test[2] == 0) {
+                cells[test[0]].text = ""
+                cells[test[0]].backgroundColor = .red
+            }
+            
+            // value is correct, turn green
+            if (test[2] == 1) {
+                cells[test[0]].backgroundColor = .green
+            }
+            
+            // showing every value being tested
+            cells[test[0]].text = String(test[1])
+        }
+        
+        // recursion call after a short delay
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            
+    
+            if (self.counter < self.visInstructions.count - 1) {
+                self.counter += 1
+                self.arrayExecuter(test: self.visInstructions[self.counter])
+                
+            }
+            
+            
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
@@ -310,7 +374,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
-
+ 
     
 }
